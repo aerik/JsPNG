@@ -6,8 +6,8 @@ function JsPNG(width, height, isGrey) {
         }
     }
 
-	var numChannels = 3;
-	if(isGrey) numChannels = 1;
+    var numChannels = 3;
+    if(isGrey) numChannels = 1;
 	
     /* helper functions */
     var intBuf = new Uint32Array(1);
@@ -96,14 +96,6 @@ function JsPNG(width, height, isGrey) {
     //}
     //var PLTEcrc = intToBytes(crc32(PLTEdata.slice(4, PLTEdata.length - 4)));
     //write(PLTEdata, PLTEdata.length - 4, PLTEcrc);
-
-    var lastTimeStamp = performance.now();
-    var logTime = function (msg) {
-        var pn = performance.now();
-        var dur = pn - lastTimeStamp;
-        lastTimeStamp = pn;
-        console.log(msg + " " + dur + " ms");
-    }
 
     this.getBytes = function (compLevel) {
         //deflate pixeldata
