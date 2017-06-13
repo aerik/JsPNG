@@ -121,7 +121,7 @@ function JsPNG(width, height, isGrey) {
         write(data, 37 + plteDataLen, IDAT);
         write(data, 41 + plteDataLen, defBytes);
 
-        var idatData = new Uint8Array(37 + plteDataLen, data.length - 16);//includes the IDAT header
+        var idatData = new Uint8Array(data.buffer.slice(37 + plteDataLen, data.length - 16));//includes the IDAT header
 
         var idatCRCposition = data.length - 16;
         var IDATcrc = intToBytes(crc32(idatData));
